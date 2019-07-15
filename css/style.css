@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+}
+
+/*
+ * styles for modal
+ */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #f1f1f1;
+  width: 50%;
+  height: 25%;
+  margin-left: -25%;
+  margin-top: -12.5%;
+  padding: 16px;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal-bg {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.message {
+  font: 400 18px/1.2em 'Open Sans', sans-serif;
+}
+
+#win {
+  font-size: 36px;;
+}
+
+#replay,
+#exit {
+  text-decoration: underline;
+  cursor: pointer;
+}
