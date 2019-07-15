@@ -6,11 +6,11 @@ This project aims to create a new version of the classic arcade game Frogger. In
 
 ## Instructions
 
-# Starting the game
+### Starting the game
 
 Open the **index.html** file using the latest version of **Chrome** web browser that is available. The game starts automatically when the page has loaded.
 
-# How to play
+### How to play
 
 The player (boy) needs to reach the water without colliding with any of the enemies (bugs running across the screen at different speeds).
 
@@ -18,13 +18,13 @@ You can move the player by pressing the **left**, **up**, **right** and **down**
 
 When the player collides with an enemy, the game resets and the player starts from the initial position.
 
-# Restarting the game
+### Restarting the game
 
 You can refresh the browser page to reset the game.
 
 After winning a game click the **Replay** link on the modal to play a new game.
 
-# Exit the game
+### Exit the game
 
 To close the game, close the web browser.
 
