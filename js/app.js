@@ -67,7 +67,11 @@ let Player = function() {
 
     // variable used to pause movement
     this.paused = false;
-    };
+
+    // record of collected items
+    this.key = false;
+    this.gemOrange = false;
+};
 
 
 // Updates for the player (in addition to handleInput)
@@ -105,8 +109,15 @@ Player.prototype.update = function() {
         }
     }
 
+    // check if collect new items
+    for (let iItem = 0; iItem < allCollectibles.length; iItem++) {
+        if (this.x + 19 < allCollectibles[iItem].x + 101 && this.x + 84 > allCollectibles[iItem].x && this.y < allCollectibles[iItem].y + 50 && this.y + 50 > allCollectibles[iItem].y) {
+            allCollectibles.splice(iItem, 1);
+        }
+    }
+
     // display win if player reaches water
-    if (this.y <= 55 && this.paused === false) {
+    if (this.x === 55 && this.paused === false) {
       // pause objects
       this.paused = true;
       allEnemies.forEach(function(enemyEnd) {
@@ -115,6 +126,7 @@ Player.prototype.update = function() {
       //display modal
       displayModal();
     }
+
 }
 
 // Draw the player on the screen
@@ -147,9 +159,31 @@ Player.prototype.handleInput = function(key) {
 }
 
 
+// Collectible class
+let Collectible = function(collectibleName, x, y) {
+    // The image/sprite for collectibles, this uses
+    // a helper to easily load images
+    this.sprite = `images/${collectibleName}.png`;
+
+    // set initial position
+    this.x = x;
+    this.y = y;
+}
+
+// Draw the collectible on the screen
+Collectible.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+
 // Instantiate the enemy and player objects
 let allEnemies = [new Enemy(0, 60, 330), new Enemy(0, 145, 200), new Enemy(0, 228, 450)];
 let player = new Player();
+
+//instantiate the collectibles
+let allCollectibles = [new Collectible('key', 303, 168), new Collectible('gemorange', 100, 300)];
+//let key = new Collectible('key', 303, 168);
+//let gemOrange = new Collectible('gemorange', 100, 300);
 
 
 // This listens for key presses and sends the keys to your
@@ -197,7 +231,6 @@ function displayModal() {
 
     let bg = document.getElementsByClassName("modal-bg")[0];
     bg.style.display = "block";
-
 }
 
 // this hides the modal
