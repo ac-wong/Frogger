@@ -4,6 +4,8 @@
 
 This project aims to create a new version of the classic arcade game Frogger. In this version of the Frogger game, the boy (player) needs to run to the water without contact with any of the bugs (enemies).
 
+**New features to come soon!** We will be adding collectables and new avatars. 
+
 ## Instructions
 
 ### Starting the game
