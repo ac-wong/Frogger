@@ -28,6 +28,8 @@ Enemy.prototype.update = function(dt) {
     }
     else if (this.x >= 505) {
         this.x = -5;
+        // after an enemy goes off canvas it reappears at a different random speed
+        this.speed = 100 + Math.floor(Math.random() * 322);
     }
     else {
         this.x += (this.speed * dt);
@@ -148,7 +150,7 @@ Player.prototype.handleInput = function(key) {
 
 
 // Instantiate the enemy and player objects
-let allEnemies = [new Enemy(0, 60, 330), new Enemy(0, 145, 200), new Enemy(0, 228, 450)];
+let allEnemies = [new Enemy(0, 60, 220), new Enemy(0, 145, 150), new Enemy(0, 228, 300)];
 let player = new Player();
 
 
