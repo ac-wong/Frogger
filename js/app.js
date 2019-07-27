@@ -43,7 +43,7 @@ Enemy.prototype.render = function() {
 Enemy.prototype.collision = function(playerX, playerY) {
     // there is approx 19px left of player and player is about 65px (therefore 94px)
     // there is around 2px right of enemy and enemy is about 96px (therefore 84px)
-    if (playerX + 19 < this.x + 94 && playerX + 84 > this.x && playerY <= this.y + 50 && playerY + 50 > this.y) {
+    if (playerX + 19 < this.x + 94 && playerX + 84 > this.x && playerY < this.y + 50 && playerY + 50 > this.y) {
         return 1; // return 1 if there is a collision
     }
     else {
